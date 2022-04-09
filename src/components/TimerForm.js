@@ -20,17 +20,20 @@ const TimerForm = (props) => {
     const hourChangeHandler = (event) =>{
         setHours(event.target.value);
     }
-
-    // async handleSubmit(event) {
+    // const submitHandler = (event) =>{
     //     event.preventDefault();
-    //     await axios.post(
-    //       'https://milrfcgyte.execute-api.us-east-1.amazonaws.com/default',
-    //       { PersonNumber: Math.random(),
-    //         Name: enteredName,
-    //         Days: enteredDays,
-    //         Hours: enteredHours}
-    //     );
-    //   }
+
+    //     const expenseData = {
+    //         title: enteredTitle,
+    //         amount: enteredAmount,
+    //         date: new Date(enteredDate)
+    //     }
+    //     props.onSaveExpenseData(expenseData);
+
+    //     setEnteredTitle("");
+    //     setEnteredDate("");
+    //     setEnteredAmount("");
+    // }
 
     const submitHandler = (event) =>{
         event.preventDefault();
@@ -39,12 +42,16 @@ const TimerForm = (props) => {
         console.log("Days: " + enteredDays);
         console.log("Hours: " + enteredHours);
 
-        // const expenseData = {
-        //     title: enteredTitle,
-        //     amount: enteredAmount,
-        //     date: new Date(enteredDate)
-        // }
-        // props.onSaveExpenseData(expenseData);
+        let PersonNumber_Random = Math.random.toString();
+
+        const expenseData = {
+            PersonNumber: PersonNumber_Random,
+                    Name: enteredName,
+                    Days: enteredDays,
+                    Hours: enteredHours
+        }
+        props.onSaveCard(expenseData);
+        
         axios.post(
                   'https://milrfcgyte.execute-api.us-east-1.amazonaws.com/default',
                   { PersonNumber: Math.random().toString(),

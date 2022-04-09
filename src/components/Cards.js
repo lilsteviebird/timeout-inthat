@@ -20,7 +20,12 @@ const Cards = (props) =>{
               <Card>
                 <Card.Body>
                   <Card.Title>{card.Name}</Card.Title>
-                  <Timer Date = { card.date }/>
+                  <Timer 
+                    cardName = {card.Name} 
+                    cardDate = { card.date } 
+                    cardHour = {card.Hours} 
+                    cardDay = {card.Days}
+                    />
                 </Card.Body>
               </Card>
             </Col>

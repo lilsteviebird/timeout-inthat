@@ -3,8 +3,15 @@ import React, { useEffect, useState } from 'react';
 
 const Timer = (props) =>{
     const calculateTimeLeft = () =>{
-        let year = new Date().getFullYear();
-        const difference = +new Date() - +props.Date;
+
+
+        const cardDate = new Date(props.cardDate);
+        let endTimer = new Date(props.cardDate);
+
+        endTimer.setDate(endTimer.getDate() + parseInt(props.cardDay));
+        endTimer.setTime(endTimer.getTime() + (props.cardHour*60*60*1000));
+
+        const difference = +endTimer - +cardDate;
 
         let timeLeft = {};
 
