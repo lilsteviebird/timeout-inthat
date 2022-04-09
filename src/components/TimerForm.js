@@ -44,20 +44,30 @@ const TimerForm = (props) => {
 
         let PersonNumber_Random = Math.random.toString();
 
+        let endTimer = new Date();
+
+        endTimer.setDate(endTimer.getDate() + parseInt(enteredDays));
+        endTimer.setTime(endTimer.getTime() + (enteredHours*60*60*1000));
+
+        console.log("End Day: " + endTimer.toString());
+
         const expenseData = {
             PersonNumber: PersonNumber_Random,
                     Name: enteredName,
                     Days: enteredDays,
-                    Hours: enteredHours
+                    Hours: enteredHours,
+                    targetDate: endTimer
         }
         props.onSaveCard(expenseData);
-        
+
+
         axios.post(
                   'https://milrfcgyte.execute-api.us-east-1.amazonaws.com/default',
                   { PersonNumber: Math.random().toString(),
                     Name: enteredName,
                     Days: enteredDays,
-                    Hours: enteredHours}
+                    Hours: enteredHours,
+                    targetDate: endTimer}
                 );
 
         setName("");
