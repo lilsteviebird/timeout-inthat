@@ -47,7 +47,7 @@ const TimerForm = (props) => {
         // props.onSaveExpenseData(expenseData);
         axios.post(
                   'https://milrfcgyte.execute-api.us-east-1.amazonaws.com/default',
-                  { PersonNumber: Math.random(),
+                  { PersonNumber: Math.random().toString(),
                     Name: enteredName,
                     Days: enteredDays,
                     Hours: enteredHours}
