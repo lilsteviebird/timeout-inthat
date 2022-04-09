@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <NewCard onAddCard = { addCardHandler } /> */}
+      <NewCard onAddCard = { addCardHandler } />
       <Cards data = { cards }/>
       <Footer onAddCard = { addCardHandler }/>
     </div>

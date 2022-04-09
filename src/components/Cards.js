@@ -12,7 +12,8 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
 
 
 const Cards = (props) =>{
@@ -32,23 +33,25 @@ const Cards = (props) =>{
 
     return(
         <div>
-        {props.data.length === 0 ? <p>No Inthat Timeouts Found!</p> : 
-          <Row xs={1} md={2} className="g-4">
-            <Col>
-          {props.data.map((card) => (
-              <Card variant="outlined">
-                <CardContent>
-                    <Typography variant="h5" component="div">
-                        {card.Name}
-                    </Typography>
-                    <CountdownTimer targetDate = { card.targetDate }/>
-                </CardContent>
-              </Card>
+            {props.data.length === 0 ? <p>No Inthat Timeouts Found!</p> : 
+                <List sx ={{width: "100%", paddingBottom: "40%"}}>
+                    {props.data.map((card) => (
+                        <ListItem>
+                            <Card variant="outlined">
+                                <CardContent>
+                                    <Typography variant="h5" component="div">
+                                        {card.Name}
+                                    </Typography>
+                                    <CountdownTimer targetDate = { card.targetDate }/>
+                                </CardContent>
+                            </Card>
+                        </ListItem>
 
-          ))}
-            </Col>
-        </Row>}
+                    ))}
+                    </List>
+                }
         </div>
+        
     );
 }
 
