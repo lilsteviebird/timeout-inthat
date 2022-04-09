@@ -32,9 +32,9 @@ const Cards = (props) =>{
     // }
 
     return(
-        <div>
+        <div style = {{width: "100%"}}>
             {props.data.length === 0 ? <p>No Inthat Timeouts Found!</p> : 
-                <List sx ={{width: "100%", paddingBottom: "40%"}}>
+                <List sx ={{width: "100%", paddingBottom: "10%"}}>
                     {props.data.map((card) => (
                         <ListItem>
                             <Card variant="outlined">
