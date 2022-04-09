@@ -3,9 +3,15 @@ import React from 'react';
 import CountdownTimer from './CountdownTimer';
 
 
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 
 
@@ -30,14 +36,15 @@ const Cards = (props) =>{
           <Row xs={1} md={2} className="g-4">
             <Col>
           {props.data.map((card) => (
-              <Card>
-                <Card.Body>
-                  <Card.Title>{card.Name}</Card.Title>
-                  {
-                    <CountdownTimer targetDate = { new Date(card.targetDate) }/>
-                  }
-                </Card.Body>
+              <Card variant="outlined">
+                <CardContent>
+                    <Typography variant="h5" component="div">
+                        {card.Name}
+                    </Typography>
+                    <CountdownTimer targetDate = { card.targetDate }/>
+                </CardContent>
               </Card>
+
           ))}
             </Col>
         </Row>}
