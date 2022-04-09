@@ -18,24 +18,18 @@ const NewCard = (props) =>{
         console.log(card);
     }
 
-    return(
-        // <Popup trigger={<button> Add a New Card!</button>} modal nested>
-        //     <div>
-        //         <TimerForm onSaveCard = { saveCardDataHandler }/>
-        //         <button
-        //     className="button"
-        //     onClick={() => {
-        //       console.log('modal closed ');
-        //       close();
-        //     }}
-        //   >
-        //     I'm done!
-        //   </button>
-        //     </div>
-        // </Popup>
+    const handleDoubleClick = () =>{
+        console.log("double clicked!");
+        return(
+            <Popup>
+                <h3>Hello</h3>
+            </Popup>
+        );
+    }
 
+    return(
         <Popup
-        trigger={<button className="button"> Add an Alarm! </button>}
+        trigger={<button className="button" onDoubleClick = { handleDoubleClick }> Add an Inthat Timeout! </button>}
         modal
         nested
       >
@@ -47,7 +41,7 @@ const NewCard = (props) =>{
             <div className="header"> Submit Your Alarm! </div>
             <div className="content">
               {' '}
-              <TimerForm />
+              <TimerForm onSaveCard = { saveCardDataHandler }/>
             </div>
             <div className="actions">
               <button

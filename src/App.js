@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import NewCard from './components/NewCard';
 import Cards from './components/Cards';
+import Footer from './components/Footer';
 
 import axios from 'axios';
 
@@ -30,8 +31,9 @@ function App() {
 
   return (
     <div className="App">
-      <NewCard onAddCard = { addCardHandler } />
+      {/* <NewCard onAddCard = { addCardHandler } /> */}
       <Cards data = { cards }/>
+      <Footer onAddCard = { addCardHandler }/>
     </div>
   );
 }
